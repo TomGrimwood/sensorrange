@@ -14,7 +14,7 @@ wheels = [
 [[package]]
 name = "darkroom"
 version = "0.1.0"
-source = { editable = "../darkroom" }
+source = { git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.0#5a3cf71bf89b73c45405b859a6a1fdd6577fbfc3" }
 dependencies = [
     { name = "filelock" },
     { name = "laspy", extra = ["lazrs"] },
@@ -27,29 +27,6 @@ dependencies = [
     { name = "rich" },
     { name = "usd-core" },
     { name = "usdsensors" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "filelock", specifier = ">=3.15" },
-    { name = "laspy", extras = ["lazrs"], specifier = ">=2.5" },
-    { name = "numpy", specifier = ">=2" },
-    { name = "openexr", specifier = ">=3.3" },
-    { name = "ovrtx", specifier = "==0.7.0.1794596436", index = "https://pypi.nvidia.com/" },
-    { name = "ovstage", specifier = "==0.4.0.1794520352" },
-    { name = "pillow", specifier = ">=10" },
-    { name = "pymap3d", specifier = ">=3" },
-    { name = "rich", specifier = ">=14" },
-    { name = "usd-core", specifier = ">=25.5" },
-    { name = "usdsensors", editable = "../usdsensors" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "import-linter", specifier = ">=2.1" },
-    { name = "pytest", specifier = ">=8" },
-    { name = "ruff", specifier = ">=0.14" },
-    { name = "ty", specifier = ">=0.0.1a20" },
 ]
 
 [[package]]
@@ -482,12 +459,12 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "darkroom", editable = "../darkroom" },
+    { name = "darkroom", git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.0" },
     { name = "numpy", specifier = ">=2" },
     { name = "opencv-python-headless", specifier = ">=5.0.0.93" },
     { name = "pillow", specifier = ">=10" },
     { name = "usd-core", specifier = ">=25.5" },
-    { name = "usdsensors", editable = "../usdsensors" },
+    { name = "usdsensors", git = "https://github.com/TomGrimwood/usdsensors?tag=v0.1.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -544,18 +521,7 @@ wheels = [
 [[package]]
 name = "usdsensors"
 version = "0.1.0"
-source = { editable = "../usdsensors" }
+source = { git = "https://github.com/TomGrimwood/usdsensors?tag=v0.1.0#4b85435226ba6c256bda62ef8c666150dfa8cf75" }
 dependencies = [
     { name = "usd-core" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "usd-core", specifier = ">=25.5" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "numpy", specifier = ">=2" },
-    { name = "pytest", specifier = ">=8" },
-    { name = "ruff", specifier = ">=0.17.6" },
-    { name = "ty", specifier = ">=0.0.107" },
 ]
