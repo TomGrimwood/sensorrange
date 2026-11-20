@@ -1,0 +1,58 @@
+[project]
+name = "sensorrange"
+version = "0.1.0"
+description = "Checks run on a sensor rig in a scene: the rig rendered there by darkroom, and a sheet per camera and lidar of what it saw against what its files say, with the numbers in a results.csv."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = [
+    "darkroom",
+    "usdsensors",
+    "numpy>=2",
+    "pillow>=10",
+    "opencv-python-headless>=5.0.0.93",
+    "usd-core>=25.5",
+]
+
+[tool.uv.sources]
+# Sibling checkouts while they are all local; git sources once they are pushed.
+darkroom = { path = "../darkroom", editable = true }
+usdsensors = { path = "../usdsensors", editable = true }
+# NVIDIA's renderer (darkroom's) from NVIDIA's own index: PyPI's ovrtx is a stub that fetches it
+# there as it installs, so the lock would not hold the real wheels.
+ovrtx = { index = "nvidia" }
+
+[[tool.uv.index]]
+name = "nvidia"
+url = "https://pypi.nvidia.com"
+explicit = true
+
+[build-system]
+requires = ["uv_build>=0.9,<0.14"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+    "ty>=0.0.107",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --no-header --tb=short -p no:cacheprovider --import-mode=importlib"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+# Preview rules only where named: PLW1514, text files opened with their encoding said.
+preview = true
+explicit-preview-rules = true
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF", "PLW1514"]
+ignore = ["E501"]
+
+[tool.ty.analysis]
+# USD is C++ bindings without usable type information: check our code, not theirs.
+replace-imports-with-any = ["pxr.**"]
