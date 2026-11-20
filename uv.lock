@@ -13,8 +13,8 @@ wheels = [
 
 [[package]]
 name = "darkroom"
-version = "0.1.1"
-source = { git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.1#eda15548b13f9c70313b430c2efa7461888ea6d1" }
+version = "0.1.2"
+source = { git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.2#e7c6715a077de943dc19f29a3b3a7128cdb8bf90" }
 dependencies = [
     { name = "filelock" },
     { name = "laspy", extra = ["lazrs"] },
@@ -439,7 +439,7 @@ wheels = [
 
 [[package]]
 name = "sensorrange"
-version = "0.1.1"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "darkroom" },
@@ -459,7 +459,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "darkroom", git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.1" },
+    { name = "darkroom", git = "https://github.com/TomGrimwood/darkroom?tag=v0.1.2" },
     { name = "numpy", specifier = ">=2" },
     { name = "opencv-python-headless", specifier = ">=5.0.0.93" },
     { name = "pillow", specifier = ">=10" },
